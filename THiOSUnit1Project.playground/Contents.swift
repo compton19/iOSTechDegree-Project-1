@@ -1,7 +1,7 @@
 /*
  Michael Compton
  Treehouse iOS Techdegree: Unit 1: Project Soccer Coordinator
- 4.17.2019
+ 4.16.2019
 */
 
 // Part 1: Using the Soccer Player Info spreadsheet, create a Dictionary with String keys for each player. Also create an empty collection constant to hold all player data. Create an empty array for each of the three teams, Dragons/Sharks/Raptors.

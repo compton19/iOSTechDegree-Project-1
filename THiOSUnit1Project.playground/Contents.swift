@@ -1,6 +1,7 @@
 /*
  Michael Compton
  Treehouse iOS Techdegree: Unit 1: Project Soccer Coordinator
+ 4.17.2019
 */
 
 // Part 1: Using the Soccer Player Info spreadsheet, create a Dictionary with String keys for each player. Also create an empty collection constant to hold all player data. Create an empty array for each of the three teams, Dragons/Sharks/Raptors.
@@ -66,3 +67,45 @@ for player in inexperiencedPlayers {
     }
 }
 
+// Part 3: Write code which will generate a personal letter to the guardians, letting them know which team their child is on, and when they will attend the first practice.
+// Dragons "March 17th at 1pm" :: Sharks "March 17th at 3pm" ::Raptors "March 18th at 1pm"
+
+
+// Store 18 letters in "letters" variable
+var letters: [String] = []
+
+// Function for letter generation
+
+func generateLetters(forTeamMember teamMember: [String:String],representingTeam team: String, practiceDateAndTime practiceDate: String) -> String {
+    
+    let teamMemberGuardians = teamMember["guardians"]!
+    let teamMemberName = teamMember["name"]!
+    
+    let letterContents = """
+        Dear \(teamMemberGuardians),
+        We're excited to announce that this year, we're attempting to keep the teams balanced, by assigning players based on prior experience. With that said,
+        \(teamMemberName) has been assigned to the \(team) team. Your first practice is scheduled for \(practiceDate). As always, in the event of
+        inclement weather, we will let you know ASAP. Looking forward to an exciting and FUN season.
+        Feel free to contact me with any questions,
+        Michael Compton
+        League Coordinator
+        """
+    return letterContents
+}
+
+for teamDragonMember in teamDragons {
+    let letterReady: String = (generateLetters(forTeamMember: teamDragonMember, representingTeam: "Dragons", practiceDateAndTime: "March 17th at 1pm"))
+    letters.append(letterReady)
+}
+
+for teamSharkMember in teamSharks {
+    letters.append(generateLetters(forTeamMember: teamSharkMember, representingTeam: "Sharks", practiceDateAndTime: "March 17th at 3pm" ))
+}
+
+for teamRaptorMember in teamRaptors {
+    letters.append(generateLetters(forTeamMember: teamRaptorMember, representingTeam: "Raptors", practiceDateAndTime: "March 18th at 1pm"))
+}
+
+for letter in letters {
+    print(letter)
+}
